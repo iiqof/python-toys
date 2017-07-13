@@ -1,4 +1,4 @@
-from sympy import symbols, Matrix, exp, I, sinh, cosh
+from sympy import symbols, Matrix, exp, I, sinh, cosh, sqrt
 
 z, w = symbols('z w')
 
@@ -28,3 +28,12 @@ def R(theta): # Rotation
 
 def Tx(x):
     return Matrix([[cosh(x/2),sinh(x/2)],[sinh(x/2), cosh(x/2)]])
+
+
+# Decomposition of SU(1,1)
+
+def P(z):
+    return sqrt(1- z*z.conjugate())**(-1)*Matrix([[1,z],[z.conjugate(),1]])
+
+def U(theta):
+    return R(2*theta)
